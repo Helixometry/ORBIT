@@ -7,7 +7,6 @@ setup(
     name="ORBIT",
     version="1.0.0",
     author="Girish, Mohd Mujtaba Akhtar, Farhan Sheth, Muskaan Singh, Juliana Gerard, Paula McClean, Kongfatt Wong-Lin",
-    author_email="girish281003@gmail.com",
     description="Language-Invariant Multimodal Bi-Geometric Adversarial Learning for Zero-Shot Cross-Lingual Alzheimer's Detection",
     long_description=long_description,
     long_description_content_type="text/markdown",
