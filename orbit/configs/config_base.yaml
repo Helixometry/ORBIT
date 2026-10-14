@@ -1,0 +1,44 @@
+# ORBIT Configuration
+
+model:
+  speech_dim: 1024              # WavLM/UniSpeech output
+  text_dim: 768                 # XLM-R/mBERT output
+  hidden_dim: 512               # Fusion dimension
+  num_heads: 8                  # Cross-attention heads
+  use_adversary: true
+  num_adversaries: 3            # Multi-tap approach
+  use_geometry: true
+  use_spherical: true
+  use_hyperbolic: true
+  dropout: 0.3
+
+training:
+  batch_size: 16
+  epochs: 50
+  learning_rate: 1e-4           # AdamW
+  weight_decay: 1e-2
+  gradient_clip: 1.0
+
+  loss_weights:
+    task: 1.0
+    adversary: 0.5              # Adversarial loss weight
+    geometry: 0.3               # Geometric consistency loss
+
+schedulers:
+  type: ReduceLROnPlateau
+  factor: 0.5
+  patience: 5
+
+data:
+  sample_rate: 16000
+  max_audio_length: 30
+  text_max_length: 512
+
+device: cuda
+seed: 42
+num_workers: 4
+
+logging:
+  tensorboard: true
+  log_interval: 10
+  eval_interval: 1
